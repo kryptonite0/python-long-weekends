@@ -26,21 +26,31 @@ Inspired by https://stackoverflow.com/a/57865434/7059626 (thank you @jezrael).
 Example Usage
 -------------
 
+Simply invoke ``spot_holiday_bridges`` and pass start and end dates, plus a list of public holiday dates.
+If a public holiday falls on the day before ``start`` or the day after ``end``, 
+it is important to include it in the list of holidays 
+to make sure that the algorithm works correctly at the borders.
+
+This `notebook <https://github.com/kryptonite0/python-long-weekends/blob/main/notebooks/example.ipynb/>`_ 
+uses the example below and shows how to generate a colored calendar.
+
+
 .. code-block:: python
+    
     >>> import holidays as holidays_api
     >>> from long_weekends.long_weekends import spot_holiday_bridges
-
+    
     >>> start = '2021-01-01'
     >>> end = '2021-12-31'
     >>> holidays = holidays_api.CH(prov='TI', years=[2020, 2021, 2022])
     >>> bridges, long_weekends = spot_holiday_bridges(
             start=start, end=end, holidays=holidays)
-
+    
     >>> bridges
     [Timestamp('2021-05-14 00:00:00'),
      Timestamp('2021-06-04 00:00:00'),
      Timestamp('2021-06-28 00:00:00')]
-
+    
     >>> long_weekends
     [Timestamp('2021-01-01 00:00:00'),
      Timestamp('2021-01-02 00:00:00'),
