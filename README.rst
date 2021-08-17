@@ -2,7 +2,7 @@
 python-long-weekends
 ====================
 
-.. image:: img/calendar.png
+.. image:: https://github.com/kryptonite0/python-long-weekends/blob/main/img/calendar.png
 
 
 A simple python library to spot holiday "bridges" and long weekends.
