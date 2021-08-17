@@ -14,8 +14,18 @@ python-long-weekends
 .. image:: https://img.shields.io/badge/Used%20by-HIVE%20POWER-orange?color=fca311
    :target: https://hivepower.tech/
 
+|
+
+.. code-block:: bash
+    
+    pip install python-long-weekends
+
+|
+    
 .. image:: https://github.com/kryptonite0/python-long-weekends/blob/main/img/calendar.png
    :target: https://github.com/kryptonite0/python-long-weekends/blob/main/notebooks/example.ipynb
+
+|
 
 A simple python library to spot holiday "bridges" and long weekends.
 When a public holiday falls on a Tuesday or a Thursday, 
