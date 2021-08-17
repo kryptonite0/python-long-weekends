@@ -4,6 +4,7 @@ python-long-weekends
 
 .. image:: img/calendar.png
 
+
 A simple python library to spot holiday "bridges" and long weekends.
 When a public holiday falls on a Tuesday or a Thursday, 
 people typically take Monday or Friday off work to enjoy long vacations.
@@ -70,3 +71,11 @@ Example Usage
      Timestamp('2021-10-31 00:00:00'),
      Timestamp('2021-11-01 00:00:00')]
 
+
+License
+-------
+
+.. __: https://github.com/kryptonite0/python-long-weekends/blob/main/LICENSE
+
+Code and documentation are available according to the MIT License
+(see LICENSE__).
