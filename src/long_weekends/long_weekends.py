@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 import dateutil.parser as parser
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from typing import Union, Tuple
 
 
-def spot_holiday_bridges(start: Union[str, datetime],
-                         end: Union[str, datetime],
+def spot_holiday_bridges(start: Union[str, date],
+                         end: Union[str, date],
                          holidays: Union[np.ndarray, list]) -> Tuple[list, list]:
     """
     Spot holiday "bridges" (called like this for a lack of a better name in English -
@@ -22,10 +22,16 @@ def spot_holiday_bridges(start: Union[str, datetime],
     :return: two lists of datetime objects, the former corresponding to holiday bridges
         and the latter to long weekends
     """
+    # convert strings to dates
     if isinstance(start, str):
         start = parser.parse(start)
     if isinstance(end, str):
         end = parser.parse(end)
+    # convert datetimes to dates
+    if isinstance(start, datetime):
+        start = start.date()
+    if isinstance(end, datetime):
+        end = end.date()
     if end <= start:
         raise ValueError("Start date must be before end date.")
     # create Series of dates with 1 day padding left and right

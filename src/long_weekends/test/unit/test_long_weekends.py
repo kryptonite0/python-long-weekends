@@ -228,6 +228,30 @@ class TestLongWeekends(unittest.TestCase):
         self.assertIn(datetime(2020, 12, 3), long_weekends)
         self.assertIn(datetime(2020, 12, 4), long_weekends)
 
+    def test_start_and_end_not_exact_dates(self):
+        #          date  weekend  holiday  bridge long_weekend
+        # 0  2021-08-08     True    False       -            -
+        # 1  2021-08-09    False    False   False        False
+        # 2  2021-08-10    False    False   False        False
+        # 3  2021-08-11    False    False   False        False
+        # 4  2021-08-12    False     True   False         True
+        # 5  2021-08-13    False    False    True         True
+        # 6  2021-08-14     True    False   False         True
+        # 7  2021-08-15     True    False   False         True
+        # 8  2021-08-16    False    False       -            -
+        start = datetime(2021, 8, 9, 12, 0)
+        end = datetime(2021, 8, 15, 15)
+        holidays = ['2021-08-12']
+        bridges, long_weekends = spot_holiday_bridges(
+            start=start, end=end, holidays=holidays)
+        self.assertEqual(len(bridges), 1)
+        self.assertIn(datetime(2021, 8, 13), bridges)
+        self.assertEqual(len(long_weekends), 4)
+        self.assertIn(datetime(2021, 8, 12), long_weekends)
+        self.assertIn(datetime(2021, 8, 13), long_weekends)
+        self.assertIn(datetime(2021, 8, 14), long_weekends)
+        self.assertIn(datetime(2021, 8, 15), long_weekends)
+
 
 if __name__ == '__main__':
     unittest.main()
