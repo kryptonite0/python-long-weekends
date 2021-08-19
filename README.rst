@@ -10,7 +10,10 @@ python-long-weekends
    
 .. image:: https://github.com/kryptonite0/python-long-weekends/workflows/CI/badge.svg
    :target: https://github.com/kryptonite0/python-long-weekends/actions
-   
+
+.. image:: https://codecov.io/gh/kryptonite0/python-long-weekends/branch/main/graph/badge.svg?token=Y3XBEWJK88
+   :target: https://codecov.io/gh/kryptonite0/python-long-weekends
+
 .. image:: https://img.shields.io/badge/Used%20by-HIVE%20POWER-orange?color=fca311
    :target: https://hivepower.tech/
 
